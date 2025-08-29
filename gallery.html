@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Design</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    <!-- Background video -->
+    <video autoplay muted loop id="bg-video">
+    <source src="/assets/v3.mp4" type="video/mp4">
+    </video>
+    
+    <!-- Desktop nav -->
+  <ul class="nav">
+    <li><a href="index.html">HOME</a></li>
+    <li><a href="about.html">ABOUT US</a></li>
+    <li><a href="gallery.html">GALLERY</a></li>
+    <li><a href="bookings.html">BOOKING</a></li>
+    <li><a href="contact.html">CONTACT</a></li>
+    <li><a href="login.html">LOGIN</a></li>
+  </ul>
+
+  <!-- Hamburger menu -->
+  <div class="menu-icon" id="menuIcon" onclick="toggleMenu(this)">
+    <div class="bar bar1"></div>
+    <div class="bar bar2"></div>
+    <div class="bar bar3"></div>
+  </div>
+
+  <!-- Side menu -->
+  <div id="sideMenu" class="side-menu">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeMenu()">&times;</a>
+    <a href="index.html">HOME</a>
+    <a href="about.html">ABOUT US</a>
+    <a href="gallery.html">GALLERY</a>
+    <a href="bookings.html">BOOKING</a>
+    <a href="contact.html">CONTACT</a>
+    <a href="login.html">LOGIN</a>
+  </div>
+    
+    <div class="gallery">
+        <div class="gallery-item">
+    <img src="/assets/mysre palace.jpg" alt="Mysore Palace">
+    <p>Mysore Palace</p>
+  </div>
+   <div class="gallery-item">
+    <img src="/assets/Hampi Ruins.jpg" alt="Hampi Ruins">
+    <p>Hampi Ruins</p>
+  </div>
+    <div class="gallery-item">
+    <img src="/assets/Kudremukh Trek.jpg" alt="Kudremukh Trek">
+    <p>Kudremukh Trek</p>
+  </div>
+  <div class="gallery-item">
+    <img src="/assets/goa beach.jpg" alt="Goa Beach">
+    <p>Goa Beach</p>
+  </div>
+ 
+  <div class="gallery-item">
+    <img src="/assets/Ooty Hills.jpg" alt="Ooty Hills">
+    <p>Ooty Hills</p>
+  </div>
+  <div class="gallery-item">
+    <img src="/assets/shivmoga water falls.jpg" alt="Coorg Coffee Estates">
+    <p>Shivmoga Water Falls</p>
+  </div>
+  <div class="gallery-item">
+    <img src="/assets/Jog Falls.jpg" alt="Jog Falls">
+    <p>Jog Falls</p>
+  </div>
+
+  <div class="gallery-item">
+    <img src="/assets/Udupi Beach.jpg" alt="Udupi Beach">
+    <p>Udupi Beach</p>
+  </div>
+  <div class="gallery-item">
+    <img src="/assets/Aditogi.jpg" alt="Udupi Beach">
+    <p>Aditogi</p>
+  </div>
+
+          <div class="gallery-item">
+    <img src="/assets/files/mysre palace.jpg" alt="Mysore Palace">
+    <p>Mysore Palace</p>
+  </div>
+   <div class="gallery-item">
+    <img src="/assets/Hampi Ruins.jpg" alt="Hampi Ruins">
+    <p>Hampi Ruins</p>
+  </div>
+    <div class="gallery-item">
+    <img src="/assets/Kudremukh Trek.jpg" alt="Kudremukh Trek">
+    <p>Kudremukh Trek</p>
+  </div>
+  <div class="gallery-item">
+    <img src="/assets/Abbey Falls.jpg" alt="Goa Beach">
+    <p>Abbey Falls</p>
+  </div>
+ 
+  <div class="gallery-item">
+    <img src="/assets/Banglore palace.jpg" alt="Ooty Hills">
+    <p>Banglore Palace</p>
+  </div>
+  <div class="gallery-item">
+    <img src="/assets/beluru.jpg" alt="Coorg Coffee Estates">
+    <p>Beluru</p>
+  </div>
+  <div class="gallery-item">
+    <img src="/assets/Chitradurga Fort.jpg" alt="Jog Falls">
+    <p>Chitradurga Fort</p>
+  </div>
+
+  <div class="gallery-item">
+    <img src="/assets/Durgambika temple.jpg" alt="Udupi Beach">
+    <p>Durgambika Temple</p>
+  </div>
+  <div class="gallery-item">
+    <img src="/assets/Kotilingeshwara Temple.jpg" alt="Udupi Beach">
+    <p>Kotilingeshwara Temple</p>
+  </div>
+   <div class="gallery-item">
+    <img src="/assets/Male Mahadeshwara Hills.jpg" alt="Jog Falls">
+    <p>Male Mahadeshwara Hills</p>
+  </div>
+
+  <div class="gallery-item">
+    <img src="/assets/mekedatu.jpg" alt="Udupi Beach">
+    <p>Mekedatu</p>
+  </div>
+  <div class="gallery-item">
+    <img src="/assets/melukote.jpg" alt="Udupi Beach">
+    <p>Melukote</p>
+  </div>
+    <div class="gallery-item">
+    <img src="/assets/Nandeeshwara Temple.jpg" alt="Udupi Beach">
+    <p>Nandeeshwara Temple</p>
+  </div>
+  <div class="gallery-item">
+    <img src="/assets/Nandi Hills.jpg" alt="Udupi Beach">
+    <p>Nandi Hills</p>
+  </div>
+      <div class="gallery-item">
+    <img src="/assets/pecock hills.jpg" alt="Udupi Beach">
+    <p>Pecock Hills</p>
+  </div>
+  <div class="gallery-item">
+    <img src="/assets/Shivagange  Hills.jpg" alt="Udupi Beach">
+    <p>Shivagange  Hills</p>
+  </div>
+</div>
+
+
+<!-- javascript -->
+
+<!-- Modal
+<div id="imageModal" class="modal">
+  <div class="modal-content">
+    <span class="close-btn">&times;</span>
+    <img id="modalImage" src="" alt="">
+    <p id="modalText">Description will appear here.</p>
+  </div>
+</div> -->
+
+<script>
+
+  const sideMenu = document.getElementById("sideMenu");
+    const menuIcon = document.getElementById("menuIcon");
+
+    function toggleMenu(icon) {
+      if (sideMenu.style.width === "250px") {
+        closeMenu();
+      } else {
+        openMenu(icon);
+      }
+    }
+
+    function openMenu(icon) {
+      sideMenu.style.width = "250px";
+      icon.classList.add("open");
+    }
+
+    function closeMenu() {
+      sideMenu.style.width = "0";
+      menuIcon.classList.remove("open");
+    }
+
+    
+const descriptions = {
+  "Mysore Palace": "Mysore Palace is a historical palace located in Mysuru, Karnataka. It is known for its stunning Indo-Saracenic architecture.",
+  "Hampi Ruins": "Hampi is a UNESCO World Heritage Site with ancient temples and ruins from the Vijayanagara Empire.",
+  "Kudremukh Trek": "Kudremukh offers one of the best treks in Karnataka, with lush greenery and wildlife.",
+  "Goa Beach": "Goa is known for its scenic beaches, vibrant nightlife, and Portuguese heritage.",
+  "Ooty Hills": "Ooty is a popular hill station in Tamil Nadu, famous for its gardens and scenic beauty.",
+  "Shivmoga Water Falls": "This waterfall in Shivamogga district is a beautiful and serene natural site.",
+  "Jog Falls": "Jog Falls is the second highest plunge waterfall in India, located in Karnataka.",
+  "Udupi Beach": "Udupi is known for its peaceful beaches and famous Krishna temple.",
+  "Aditogi": "Aditogi is a serene village with beautiful landscapes and cultural history.",
+  "Abbey Falls": "Located in Coorg, Abbey Falls is a major tourist attraction amidst coffee plantations.",
+  "Banglore Palace": "Built in Tudor-style architecture, Bangalore Palace resembles England’s Windsor Castle.",
+  "Beluru": "Beluru is famous for its Hoysala temples rich in stone carvings.",
+  "Chitradurga Fort": "This fort is known for its massive structure and historic battles.",
+  "Durgambika Temple": "A sacred temple attracting devotees from Karnataka and beyond.",
+  "Kotilingeshwara Temple": "Famous for housing millions of Shiva lingas, located in Kolar.",
+  "Male Mahadeshwara Hills": "A pilgrimage spot surrounded by scenic hills.",
+  "Mekedatu": "A gorge on the River Kaveri known for its narrow pass and rapid waters.",
+  "Melukote": "Known for Cheluvanarayana Swamy Temple and traditional Sanskrit scholarship.",
+  "Nandeeshwara Temple": "An ancient temple dedicated to Nandi, Shiva’s vehicle.",
+  "Nandi Hills": "A famous sunrise point and hill station near Bangalore.",
+  "Pecock Hills": "Known for its scenic views and wild peacocks.",
+  "Shivagange  Hills": "A hill with a religious temple and a trekking trail."
+};
+
+document.querySelectorAll('.gallery-item img').forEach(img => {
+  img.addEventListener('click', () => {
+    const title = img.alt;
+    document.getElementById('modalImage').src = img.src;
+    document.getElementById('modalText').textContent = descriptions[title] || "No description available.";
+    document.getElementById('imageModal').style.display = "block";
+  });
+});
+
+document.querySelector('.close-btn').addEventListener('click', () => {
+  document.getElementById('imageModal').style.display = "none";
+});
+
+window.addEventListener('click', (e) => {
+  if (e.target.classList.contains('modal')) {
+    document.getElementById('imageModal').style.display = "none";
+  }
+});
+
+</script>
+
+</body>
+</html>

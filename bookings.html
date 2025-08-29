@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Design</title>
+    <link rel="stylesheet" href="style.css">
+  
+</head>
+<body>
+    <!-- Background video -->
+    <video autoplay muted loop id="bg-video">
+    <source src="/assets/v3.mp4" type="video/mp4">
+    </video>
+       <!-- Desktop nav -->
+  <ul class="nav">
+    <li><a href="index.html">HOME</a></li>
+    <li><a href="about.html">ABOUT US</a></li>
+    <li><a href="gallery.html">GALLERY</a></li>
+    <li><a href="bookings.html">BOOKING</a></li>
+    <li><a href="contact.html">CONTACT</a></li>
+    <li><a href="login.html">LOGIN</a></li>
+  </ul>
+
+  <!-- Hamburger menu -->
+  <div class="menu-icon" id="menuIcon" onclick="toggleMenu(this)">
+    <div class="bar bar1"></div>
+    <div class="bar bar2"></div>
+    <div class="bar bar3"></div>
+  </div>
+
+  <!-- Side menu -->
+  <div id="sideMenu" class="side-menu">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeMenu()">&times;</a>
+    <a href="index.html">HOME</a>
+    <a href="about.html">ABOUT US</a>
+    <a href="gallery.html">GALLERY</a>
+    <a href="bookings.html">BOOKING</a>
+    <a href="contact.html">CONTACT</a>
+    <a href="login.html">LOGIN</a>
+  </div>
+    
+ <form class="booking-form" action="bookings.html" method="POST">
+    <h2>TOURIST PLACE BOOKING</h2>
+
+    <div class="form-group">
+      <label for="fullName">Full Name *</label>
+      <input type="text" id="fullName" name="fullName" required placeholder="Your full name" />
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email Address *</label>
+      <input type="email" id="email" name="email" required placeholder="you@example.com" />
+    </div>
+
+    <div class="form-group">
+      <label for="phone">Phone Number *</label>
+      <input type="tel" id="phone" name="phone" required placeholder="+1234567890" pattern="[+0-9\s\-]{7,15}" />
+    </div>
+
+<div class="form-group">
+  <label for="touristPlace">Select Tourist Place *</label>
+  <select id="touristPlace" name="touristPlace" required>
+    <option value="" disabled selected>-- Choose a place --</option>
+    <option value="Mysore Palace">Mysore Palace</option>
+    <option value="Hampi Ruins">Hampi Ruins</option>
+    <option value="Kudremukh Trek">Kudremukh Trek</option>
+    <option value="Goa Beach">Goa Beach</option>
+    <option value="Ooty Hills">Ooty Hills</option>
+    <option value="Shivmoga Water Falls">Shivmoga Water Falls</option>
+    <option value="Jog Falls">Jog Falls</option>
+    <option value="Udupi Beach">Udupi Beach</option>
+    <option value="Adiyogi">Adiyogi</option>
+    <option value="Abbey Falls">Abbey Falls</option>
+    <option value="Banglore Palace">Banglore Palace</option>
+    <option value="Beluru">Beluru</option>
+    <option value="Chitradurga Fort">Chitradurga Fort</option>
+    <option value="Durgambika Temple">Durgambika Temple</option>
+    <option value="Kotilingeshwara Temple">Kotilingeshwara Temple</option>
+    <option value="Male Mahadeshwara Hills">Male Mahadeshwara Hills</option>
+    <option value="Mekedatu">Mekedatu</option>
+    <option value="Melukote">Melukote</option>
+    <option value="Nandeeshwara Temple">Nandeeshwara Temple</option>
+    <option value="Nandi Hills">Nandi Hills</option>
+    <option value="Pecock Hills">Pecock Hills</option>
+    <option value="Shivagange Hills">Shivagange Hills</option>
+  </select>
+</div>
+
+
+
+    <div class="form-group">
+      <label for="visitDate">Visit Date *</label>
+      <input type="date" id="visitDate" name="visitDate" required min="<?php echo date('Y-m-d'); ?>" />
+    </div>
+
+    <div class="form-group">
+      <label for="numGuests">Number of Guests *</label>
+      <input type="number" id="numGuests" name="numGuests" required min="1" max="20" placeholder="1" />
+    </div>
+
+    <button type="submit">Book Now</button>
+  </form>
+
+   
+  <script>
+        const sideMenu = document.getElementById("sideMenu");
+    const menuIcon = document.getElementById("menuIcon");
+
+    function toggleMenu(icon) {
+      if (sideMenu.style.width === "250px") {
+        closeMenu();
+      } else {
+        openMenu(icon);
+      }
+    }
+
+    function openMenu(icon) {
+      sideMenu.style.width = "250px";
+      icon.classList.add("open");
+    }
+
+    function closeMenu() {
+      sideMenu.style.width = "0";
+      menuIcon.classList.remove("open");
+    }
+ const destinations = document.querySelectorAll('.destination');
+const select = document.getElementById('touristPlace');
+
+// When clicking on a destination in the list
+destinations.forEach(dest => {
+  dest.style.cursor = 'pointer';
+
+  dest.addEventListener('click', () => {
+    // Set select value
+    select.value = dest.getAttribute('data-name');
+
+    // Highlight the clicked item
+    highlightDestination(dest.getAttribute('data-name'));
+  });
+});
+
+// When changing the select dropdown
+select.addEventListener('change', () => {
+  highlightDestination(select.value);
+});
+
+// Function to highlight the matching destination in the list
+function highlightDestination(name) {
+  destinations.forEach(d => {
+    if (d.getAttribute('data-name') === name) {
+      d.style.backgroundColor = '#ffeb3b'; // yellow highlight
+    } else {
+      d.style.backgroundColor = '';
+    }
+  });
+}
+
+// On form submit, check if a destination is selected via select dropdown
+const form = document.querySelector('.booking-form');
+form.addEventListener('submit', function (e) {
+  if (!select.value) {
+    e.preventDefault();
+    alert('Please select a tourist place.');
+    return false;
+  }
+
+  e.preventDefault();
+
+  alert(`Booking successful for ${select.value}!`);
+
+  window.location.href = "index.html";
+});
+
+</script>
+
+</body>
+</html>

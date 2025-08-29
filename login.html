@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Login & Register Forms</title>
+<link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+ <!-- Background video -->
+    <video autoplay muted loop id="bg-video">
+    <source src="/assets/v3.mp4" type="video/mp4">
+    </video>
+
+    <!-- Desktop nav -->
+  <ul class="nav">
+    <li><a href="index.html">HOME</a></li>
+    <li><a href="about.html">ABOUT US</a></li>
+    <li><a href="gallery.html">GALLERY</a></li>
+    <li><a href="bookings.html">BOOKING</a></li>
+    <li><a href="contact.html">CONTACT</a></li>
+    <li><a href="login.html">LOGIN</a></li>
+  </ul>
+
+  <!-- Hamburger menu -->
+  <div class="menu-icon" id="menuIcon" onclick="toggleMenu(this)">
+    <div class="bar bar1"></div>
+    <div class="bar bar2"></div>
+    <div class="bar bar3"></div>
+  </div>
+
+  <!-- Side menu -->
+  <div id="sideMenu" class="side-menu">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeMenu()">&times;</a>
+    <a href="index.html">HOME</a>
+    <a href="about.html">ABOUT US</a>
+    <a href="gallery.html">GALLERY</a>
+    <a href="bookings.html">BOOKING</a>
+    <a href="contact.html">CONTACT</a>
+    <a href="login.html">LOGIN</a>
+  </div>
+
+<div class="container" id="form-container">
+  <!-- Login Form -->
+  <form id="login-form">
+    <h2>LOGIN</h2>
+    <label for="login-email">Email Address</label>
+    <input type="email" id="login-email" name="login-email" placeholder="you@example.com" required />
+
+    <label for="login-password">Password</label>
+    <input type="password" id="login-password" name="login-password" placeholder="Enter password" required />
+
+    <button type="submit">Login</button>
+    <p class="toggle-text">Don't have an account? <a id="show-register" href="#">Register here</a></p>
+  </form>
+
+  <!-- Register Form (hidden by default) -->
+  <form id="register-form" style="display:none;">
+    <h2>REGISTER</h2>
+    <label for="register-name">Full Name</label>
+    <input type="text" id="register-name" name="register-name" placeholder="Your full name" required />
+
+    <label for="register-email">Email Address</label>
+    <input type="email" id="register-email" name="register-email" placeholder="you@example.com" required />
+
+    <label for="register-password">Password</label>
+    <input type="password" id="register-password" name="register-password" placeholder="Enter password" required />
+
+    <label for="register-confirm-password">Confirm Password</label>
+    <input type="password" id="register-confirm-password" name="register-confirm-password" placeholder="Confirm password" required />
+
+    <button type="submit">Register</button>
+    <p class="toggle-text">Already have an account? <a id="show-login" href="#">Login here</a></p>
+  </form>
+</div>
+
+<script>
+
+  const sideMenu = document.getElementById("sideMenu");
+    const menuIcon = document.getElementById("menuIcon");
+
+    function toggleMenu(icon) {
+      if (sideMenu.style.width === "250px") {
+        closeMenu();
+      } else {
+        openMenu(icon);
+      }
+    }
+
+    function openMenu(icon) {
+      sideMenu.style.width = "250px";
+      icon.classList.add("open");
+    }
+
+    function closeMenu() {
+      sideMenu.style.width = "0";
+      menuIcon.classList.remove("open");
+    }
+
+    
+  // Toggle between login and register forms
+  const loginForm = document.getElementById('login-form');
+  const registerForm = document.getElementById('register-form');
+  const showRegister = document.getElementById('show-register');
+  const showLogin = document.getElementById('show-login');
+
+  showRegister.addEventListener('click', function (e) {
+    e.preventDefault();
+    loginForm.style.display = 'none';
+    registerForm.style.display = 'flex';
+  });
+
+  showLogin.addEventListener('click', function (e) {
+    e.preventDefault();
+    registerForm.style.display = 'none';
+    loginForm.style.display = 'flex';
+  });
+
+  // Handle login form submission
+  loginForm.addEventListener('submit', function (e) {
+    e.preventDefault(); // Prevent default form submission
+
+    // Optional: Add your validation logic here or authentication with backend
+
+    // For now, assume login is always successful
+    alert('Login successful!');
+    window.location.href = 'index.html'; // Redirect to homepage
+  });
+</script>
+</body>
+</html>
